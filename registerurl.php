@@ -1,19 +1,28 @@
 <?php
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    $credentials = base64_encode('DPh667WXtdmPHs4OhodoOgYCGPPjdh2m:mzxzOYIA5zGKJmvN');
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
+    $consumerKey = 'DPh667WXtdmPHs4OhodoOgYCGPPjdh2m';
+    $consumerSecret = 'mzxzOYIA5zGKJmvN';
+    $headers = ['Content-Type:application/json','charset-utf8'];
+
+    $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); //setting a custom header
     curl_setopt($curl, CURLOPT_HEADER, false);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_USRPWD, $consumerKey.':'.$consumerSecret);
 
-    $curl_response = curl_exec($curl);
+    $result = curl_exec($curl);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $result = json_decode($result);
 
-    $access_token1=json_decode($curl_response)->access_token;
 
-    echo($access_token1);
+    $access_token=$result->access_token;
 
-  $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+    echo($access_token);
+
+    curl_close($curl);
+
+ 
   
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, $url);
