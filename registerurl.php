@@ -1,9 +1,21 @@
 <?php
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    $credentials = base64_encode('DPh667WXtdmPHs4OhodoOgYCGPPjdh2m:mzxzOYIA5zGKJmvN');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+    $curl_response = curl_exec($curl);
+
+    echo json_decode($curl_response)->access_token;
+
   $url = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
   
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, $url);
-  curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN')); //setting custom header
+  curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ' .$access_token)); //setting custom header
   
   
   $curl_post_data = array(
