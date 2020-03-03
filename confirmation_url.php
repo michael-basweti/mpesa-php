@@ -14,7 +14,7 @@
     // write to file
     $log = fopen($logFile, "a");
 
-    fwrite($log, $jsonMpesaResponse);
+    fwrite($log, $mpesaResponse);
     fclose($log);
 
     echo $response
