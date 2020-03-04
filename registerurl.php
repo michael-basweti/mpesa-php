@@ -16,9 +16,9 @@
     $tel = json_decode($curl_response1)->access_token;
     // echo($tel);
  
-  
+    $url1 = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
   $curl = curl_init();
-  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_URL, $url1);
   curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$tel)); //setting custom header
   
   
