@@ -13,7 +13,9 @@
     
     // echo ;
     // echo(json_decode($curl_response)->access_token);
-    $tel = json_decode($curl_response1)->access_token;
+
+    $ann = json_decode($curl_response1);
+    $tel = $ann->access_token;
     echo($tel);
  
     $url1 = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
