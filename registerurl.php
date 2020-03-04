@@ -9,11 +9,11 @@
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     
-    $curl_response = curl_exec($curl);
+    $curl_response1 = curl_exec($curl);
     
     // echo ;
     // echo(json_decode($curl_response)->access_token);
-    $tel = json_decode($curl_response)->access_token;
+    $tel = json_decode($curl_response1)->access_token;
     // echo($tel);
  
   
