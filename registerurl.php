@@ -26,8 +26,8 @@
     //Fill in the request parameters with valid values
     'ShortCode' => '600134',
     'ResponseType' => 'Confirmed',
-    'ConfirmationURL' => 'https://mpesatestmike.herokuapp.com/confirmation_url.php',
-    'ValidationURL' => 'https://mpesatestmike.herokuapp.com/validation.php'
+    'ConfirmationURL' => 'https://basweti.herokuapp.com/confirmation_url.php',
+    'ValidationURL' => 'https://basweti.herokuapp.com/validation.php'
   );
   
   $data_string = json_encode($curl_post_data);
