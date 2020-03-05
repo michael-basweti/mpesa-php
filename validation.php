@@ -7,14 +7,14 @@
     // Data
     $mpesaResponse = file_get_contents('php://input');
 
-    $logFile = "M_PesaResponse.txt";
+    $logFile = "ValidationResponse.txt";
 
     $jsonMpesaResponse = json_decode($mpesaResponse, true);
 
     // write to file
     $log = fopen($logFile, "a");
 
-    fwrite($log, $jsonMpesaResponse);
+    fwrite($log, $mpesaResponse);
     fclose($log);
 
     echo $response
